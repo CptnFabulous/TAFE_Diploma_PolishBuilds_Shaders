@@ -1,0 +1,4 @@
+﻿Shader "CameraFilter/CustomToonShader"
+{
+	
+}
