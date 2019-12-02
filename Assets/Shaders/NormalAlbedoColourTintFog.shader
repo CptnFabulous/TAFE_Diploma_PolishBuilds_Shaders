@@ -1,4 +1,4 @@
-﻿Shader "Lesson/4" // This section allows for easy sorting of our shaders in the shader menu
+﻿Shader "Lesson/NormalAlbedoColourTintFog" // This section allows for easy sorting of our shaders in the shader menu
 {
     Properties // are the public properties seen on a material
 	{
