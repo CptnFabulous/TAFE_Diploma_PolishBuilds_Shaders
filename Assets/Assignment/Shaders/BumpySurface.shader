@@ -1,4 +1,4 @@
-﻿Shader "Custom/ExperimentalShader"
+﻿Shader "Custom/BumpySurface"
 {
     Properties
     {
@@ -37,16 +37,10 @@
             // put more per-instance properties here
         UNITY_INSTANCING_BUFFER_END(Props)
 
-        void surf (Input IN, inout SurfaceOutputStandard o)
-        {
-            // Albedo comes from a texture tinted by color
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-            o.Albedo = c.rgb;
-            // Metallic and smoothness come from slider variables
-            o.Metallic = _Metallic;
-            o.Smoothness = _Glossiness;
-            o.Alpha = c.a;
-        }
+        void surf (Input IN, inout SurfaceOutput o)
+		{
+          o.Albedo = 1;
+		}
         ENDCG
     }
     FallBack "Diffuse"
