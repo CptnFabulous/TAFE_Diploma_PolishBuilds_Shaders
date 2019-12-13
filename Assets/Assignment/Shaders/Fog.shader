@@ -62,7 +62,8 @@
 		{
 			o.Albedo = tex2D(_Texture, IN.uv_Texture).rgb * _Colour; // Albedo references the surface image and RGB of our model. RGB refers to red, green and blue and is used for colours. We are setting the model's surface to the colour of our Texture2D and matching the Texture to our model's UV mapping
 			o.Normal = UnpackNormal(tex2D(_NormalMap, IN.uv_NormalMap)); // Normal map is in reference to the bump map in Properties. UnpackNormal is required because the file is compressed. We need to decompress and get the true value from the Image. Bump maps are visibla when light reflects off. The light is bounced off at angles according to the images RGB or XYZ values. This creates the illusion of depth.
-			o.Alpha = lerp(_Colour.a, _FogColour.a, IN.fog); // Alters transparency DOES NOT WORK
+			
+			o.Alpha = lerp(_Colour.a, _FogColour.a, IN.fog); // Edits alpha value of mesh by lerping between the alpha values of the normal and fog colours, using the same input value used to alter the mesh's colour.
 		}
 		ENDCG // This is the end of our C for Graphics Language
 	}

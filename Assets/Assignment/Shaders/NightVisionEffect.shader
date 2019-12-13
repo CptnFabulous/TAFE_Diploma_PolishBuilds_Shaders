@@ -12,7 +12,7 @@
 
 	half4 _ColourTint;
 	float2 _Fuzz;
-	float _FuzzOffset;
+	float _Contrast;
 
 	float nrand(float x, float y)
 	{
@@ -28,6 +28,7 @@
 		float xfuzz = nrand(v, _Time.x) * _Fuzz.x;
 		float yfuzz = nrand(_Time.x, u) * _Fuzz.y;
 		half4 result = tex2D(_MainTex, frac(float2(u + xfuzz, v + yfuzz))); // New half4 is made with applied fuzz
+
 		return result * _ColourTint; // Colour tint is added to fuzz, and result is applied
 	}
 	ENDCG

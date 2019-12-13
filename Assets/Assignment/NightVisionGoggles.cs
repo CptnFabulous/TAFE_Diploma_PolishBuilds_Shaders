@@ -10,6 +10,7 @@ public class NightVisionGoggles : MonoBehaviour
     #region Public Variables
     public Color tint = Color.green;
     public Vector2 fuzz = new Vector2(0.005f, 0.005f);
+    public float contrast = 1;
     #endregion
 
     #region Private Variables
@@ -30,7 +31,7 @@ public class NightVisionGoggles : MonoBehaviour
         // Apply values here. Any calculations that need to be done using Unity's variables can be done here.
         _material.SetVector("_ColourTint", tint);
         _material.SetVector("_Fuzz", fuzz);
-        //_material.SetFloat("_FuzzOffset", fuzzOffset);
+        _material.SetFloat("_Contrast", contrast);
 
         Graphics.Blit(source, destination, _material);
     }
