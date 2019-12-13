@@ -1,6 +1,6 @@
 ﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "Custom/ExperimentalShader"
+Shader "Custom/MyFirstShader"
 {
     // The properties section is used to declare variables that can be altered in the Inspector depending on the shader
 	Properties
@@ -64,11 +64,11 @@ Shader "Custom/ExperimentalShader"
 			*/
 			float4 MyFragmentProgram (float4 position : SV_POSITION/*, out float3 localPosition : TEXCOORD0*/) : SV_TARGET // SV_TARGET is the default shader target. This is the frame buffer, which contains the image that we are generating.
 			{
-				
-				//return _Tint; // Returns user-defined _Tint colour variable
+				// return 0; // Returns black
+				//return float4(1, 1, 0, 1); // Returns yellow
+				//return 0.1 * _Time.y; // Returns colour that slowly shifts over time but stays, this function is broken
+				return _Tint; // Returns user-defined _Tint colour variable
 
-				//return 1 * _SinTime;
-				return 1 * _SinTime * _CosTime;
 
 
 				// You would expect the A value being a zero would result in a completely transparent and invisible shape, but this shader does not presently support transparency.
